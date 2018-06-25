@@ -16,7 +16,7 @@ import Spinner from 'vue-simple-spinner'
 
 export default {
   name: 'UserSearch',
-  data() {
+  data () {
     return {
       inputValue: '',
       isFetching: false
@@ -31,16 +31,20 @@ export default {
     ...mapActions([
       'getUser'
     ]),
-    searchUser() {
+    searchUser () {
       const login = this.lastUser.login
 
-      if (login && login.toLowerCase() === this.inputValue){
+      if (login && login.toLowerCase() === this.inputValue) {
         Vue.toasted.error('User is already on the page')
       } else {
         this.isFetching = true
         this.getUser(this.inputValue)
-          .then(() => this.isFetching = false)
-          .catch(() => this.isFetching = false)
+          .then(function () {
+            this.isFetching = false
+          })
+          .catch(function () {
+            this.isFetching = false
+          })
       }
     }
   },
@@ -95,7 +99,6 @@ export default {
     &:hover
       transition: .3s
       background: #4b4748
-
 
 @media (max-width: 767px)
   .search

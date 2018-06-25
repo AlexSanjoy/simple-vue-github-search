@@ -2,7 +2,7 @@
   <div class="home">
     <img class="home__logo" src="../assets/img/gh-logo.png" alt="GitHub Logo">
     <UserSearch />
-    <UserCard v-if="lastUser.id" :user="lastUser" />
+    <UserCard v-if="lastUser.id" :key="user.id" :user="lastUser" />
   </div>
 </template>
 

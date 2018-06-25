@@ -4,7 +4,7 @@ import * as type from './types'
 import Vue from 'vue'
 
 const actions = {
-  getUser({ commit }, data) {
+  getUser ({ commit }, data) {
     return new Promise((resolve, reject) => {
       Vue.http.get(`https://api.github.com/users/${data}`)
         .then(user => {

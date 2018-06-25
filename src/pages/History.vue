@@ -1,7 +1,7 @@
 <template>
-	<div class="history">
+  <div class="history">
     <div v-if="Object.keys(users).length">
-      <UserCard v-for="user in users" :user="user" />
+      <UserCard v-for="user in users" :key="user.id" :user="user" />
     </div>
     <div v-else>
       <h2>The history is empty</h2>
@@ -14,7 +14,7 @@ import { mapGetters } from 'vuex'
 import UserCard from '../components/UserCard'
 
 export default {
-  name: "History",
+  name: 'History',
   computed: {
     ...mapGetters([
       'users'

@@ -8,7 +8,7 @@ const state = {
 }
 
 const mutations = {
-  [type.GET_USER](state, data) {
+  [type.GET_USER] (state, data) {
     state.lastUser = data
     state.users[data.id] = data
   }
