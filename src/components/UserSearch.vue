@@ -39,12 +39,8 @@ export default {
       } else {
         this.isFetching = true
         this.getUser(this.inputValue)
-          .then(function () {
-            this.isFetching = false
-          })
-          .catch(function () {
-            this.isFetching = false
-          })
+          .then(() => this.isFetching = false)
+          .catch(() => this.isFetching = false)
       }
     }
   },
